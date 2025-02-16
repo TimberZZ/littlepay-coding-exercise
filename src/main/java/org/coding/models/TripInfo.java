@@ -1,7 +1,9 @@
 package org.coding.models;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Builder
 @Data
 public class TripInfo {
     private String started;
