@@ -32,17 +32,20 @@ public class TripService {
                 currentTapOn = tapInfo;
             } else if (tapInfo.getTapType() == TapType.OFF) {
                 if (checkIfHaveValidTapOn(currentTapOn, tapInfo)) {
-                    // check if previous tap on can be paired with this tap off. If so, create a completed trip.
-                    tripInfos.add(createCompletedTrip(currentTapOn, tapInfo));
+                    // check if previous tap on can be paired with this tap off. If so, create a completed/cancelled trip.
+                    tripInfos.add(createCompletedOrCancelledTrip(currentTapOn, tapInfo));
                     currentTapOn = null;
                 } else {
                     // if not, create an incomplete trip for previous tap on if it exists
                     // and create an error trip for single tap off.
                     checkIfCreateIncompleteTrip(currentTapOn, tripInfos);
+                    currentTapOn = null;
                     tripInfos.add(createIncompleteTapOffTrip(tapInfo));
                 }
             }
         }
+        // check if there's still unpaired tap on, process as incomplete trip.
+        checkIfCreateIncompleteTrip(currentTapOn, tripInfos);
 
         return tripInfos;
     }
@@ -78,7 +81,7 @@ public class TripService {
      * @param tapOffInfo tap off info
      * @return trip info created by on/off infos.
      */
-    private TripInfo createCompletedTrip(TapInfo currentTapOn, TapInfo tapOffInfo) {
+    private TripInfo createCompletedOrCancelledTrip(TapInfo currentTapOn, TapInfo tapOffInfo) {
         Double chargeAmount = 0.0;
         TripStatus tripStatus;
 

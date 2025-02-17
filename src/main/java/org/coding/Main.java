@@ -10,8 +10,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String inputFilePath = "input.csv";
-        String outputFilePath = "output.csv";
+        String inputFilePath = "taps.csv";
+        String outputFilePath = "trips.csv";
 
         CsvService csvService = new CsvService();
         TripService tripService = new TripService();

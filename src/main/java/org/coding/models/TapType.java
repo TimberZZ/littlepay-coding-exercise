@@ -1,9 +1,5 @@
 package org.coding.models;
 
-import lombok.extern.slf4j.Slf4j;
-
-import java.util.logging.Logger;
-
 public enum TapType {
     ON,
     OFF,
