@@ -8,7 +8,7 @@ This project processes bus tap-on and tap-off records to generate trip data, inc
 - **Charge Calculation**: Computes the correct charge based on stop locations and given price.
 - **Data Formatting**: Converting taps data into trips.
 - **CSV File Processing**: Reads and writes structured data in CSV format.
-- **Unit Testing**: Includes Junit tests to validate core logic.
+- **Unit Testing**: Includes Junit tests to validate core logic. The test coverage has covered all methods in services and utils.
 
 ## Assumptions
 - **Input CSV file**
@@ -42,7 +42,6 @@ So the trip will have empty start time and stopID, also the charge will be at th
 ├── data
 │   ├── taps.csv          # Sample input file
 │   ├── trips.csv         # Expected output file
-│   ├── test_input.csv    # test file for Junit test
 ├── README.md
 ├── pom.xml (For Maven projects)
 ```
@@ -70,8 +69,9 @@ Go to src/main/java/org/coding/Main.java and run. The output 'trips.csv' file wi
 
 - **Run Tests**
 
-Go to src/test/java/org/coding/services, here we have CsvServiceTest.java and TripServiceTest.java.
+Go to src/test/java/org/coding/services and src/test/java/org/coding/utils, here we have several test files.
 You can either right-click the file and choose 'Run xxxTest' or get into the test file and click the run button.
+Or right-click the upper-level package to run them all.
 
 ![img_2.png](img_2.png)
 
