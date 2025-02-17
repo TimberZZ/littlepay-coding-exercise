@@ -2,14 +2,14 @@ package org.coding.services;
 
 import org.coding.models.TapInfo;
 import org.coding.models.TapType;
-import org.coding.services.CsvService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CsvServiceTest {
 
